@@ -1,0 +1,34 @@
+// Variables
+$primary-color: #007bff
+$hover-color: darken($primary-color, 10%)
+$text-color: white
+
+// Common button styles
+.button
+  padding: 10px 20px
+  background-color: $primary-color
+  color: $text-color
+  border: none
+  cursor: pointer
+  border-radius: 4px
+  font-size: 14px
+  font-weight: bold
+  transition: background-color 0.3s
+
+  &:hover
+    background-color: $hover-color
+
+.logout-container
+  display: flex
+  justify-content: flex-end
+  margin-bottom: 20px
+
+.logout-button
+  @extend .button
+  width: auto
+  padding: 14px 28px
+  font-size: 18px
+
+router-outlet
+  display: block
+  margin-top: 20px

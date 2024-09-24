@@ -1,0 +1,77 @@
+<h2>Process Transaction</h2>
+<form (ngSubmit)="submitTransaction()">
+  <div>
+    <label>Processing Code:</label>
+    <input
+      type="text"
+      [(ngModel)]="transactionData.ProcessingCode"
+      name="ProcessingCode"
+      required
+    />
+  </div>
+  <div>
+    <label>System Trace Nr:</label>
+    <input
+      type="text"
+      [(ngModel)]="transactionData.SystemTraceNr"
+      name="SystemTraceNr"
+      required
+    />
+  </div>
+  <div>
+    <label>Function Code:</label>
+    <input
+      type="text"
+      [(ngModel)]="transactionData.FunctionCode"
+      name="FunctionCode"
+      required
+    />
+  </div>
+  <div>
+    <label>Card No:</label>
+    <input
+      type="text"
+      [(ngModel)]="transactionData.CardNo"
+      name="CardNo"
+      required
+    />
+  </div>
+  <div>
+    <label>Card Holder:</label>
+    <input
+      type="text"
+      [(ngModel)]="transactionData.CardHolder"
+      name="CardHolder"
+      required
+    />
+  </div>
+  <div>
+    <label>Amount Transaction:</label>
+    <input
+      type="text"
+      [(ngModel)]="transactionData.AmountTrxn"
+      name="AmountTrxn"
+      required
+    />
+  </div>
+  <div>
+    <label>Currency Code:</label>
+    <input
+      type="text"
+      [(ngModel)]="transactionData.CurrencyCode"
+      name="CurrencyCode"
+      required
+    />
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<div *ngIf="response" class="transaction-response">
+  <h3>Transaction Response</h3>
+  <p>Response Code: {{ response.ResponseCode }}</p>
+  <p>Message: {{ response.Message }}</p>
+  <p>Approval Code: {{ response.ApprovalCode }}</p>
+  <p>DateTime: {{ response.DateTime }}</p>
+</div>
