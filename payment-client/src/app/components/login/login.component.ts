@@ -1,27 +1,34 @@
 import { Component, Inject } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.sass'],
 })
 export class LoginComponent {
   username = '';
   password = '';
+  errorMessage = '';
 
-  constructor(@Inject(AuthService) private authService: AuthService) {}
+  constructor(
+    @Inject(AuthService) private authService: AuthService,
+    private router: Router
+  ) {}
 
   login() {
-    this.authService
-      .login(this.username, this.password)
-      .subscribe((isAuthenticated: boolean) => {
-        // Explicitly set the type of 'isAuthenticated'
+    this.authService.login(this.username, this.password).subscribe(
+      (isAuthenticated: boolean) => {
         if (isAuthenticated) {
-          console.log('Login successful');
-          // Proceed with further actions after login, such as redirecting the user
+          this.router.navigate(['/transaction']);
         } else {
-          console.log('Login failed');
+          this.errorMessage = 'Login failed. Please check your credentials.';
         }
-      });
+      },
+      (error) => {
+        this.errorMessage = 'An error occurred during login.';
+      }
+    );
   }
 }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
+import { AlreadyAuthGuard } from './guards/already-auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/transaction', pathMatch: 'full' },
@@ -11,7 +12,11 @@ const routes: Routes = [
     component: TransactionComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [AlreadyAuthGuard],
+  },
   { path: '**', redirectTo: '/transaction' },
 ];
 

@@ -25,7 +25,6 @@ export class TransactionComponent {
       this.response = await this.transactionService.processTransaction(
         this.transactionData
       );
-      console.log('DeCrypted Response:- ', this.response);
     } catch (error) {
       alert('Error processing transaction');
     }

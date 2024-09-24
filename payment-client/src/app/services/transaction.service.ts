@@ -25,13 +25,13 @@ export class TransactionService {
     // Step 3: Send encrypted data to the API
     const payload = {
       EncryptedData: encryptedData,
-      Key: key, // In a real scenario, do not send the key back to the server
+      Key: key, // In a real scenario, we shouldn't do not send the key back to the server
     };
 
     const response: any = await this.http
       .post(`${this.apiUrl}/Transaction/Process`, payload)
       .toPromise();
-    console.log('Encrypted Data:- ', response.encryptedData);
+
     // Step 4: Decrypt response data
     const decryptedResponseData = this.decryptData(response.encryptedData, key);
     return JSON.parse(decryptedResponseData);

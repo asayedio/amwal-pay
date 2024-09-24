@@ -8,5 +8,10 @@
     <label>Password:</label>
     <input type="password" [(ngModel)]="password" name="password" required />
   </div>
+  <!-- Display error message if login fails -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
   <button type="submit">Login</button>
 </form>
