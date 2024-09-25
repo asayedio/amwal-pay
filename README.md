@@ -184,6 +184,12 @@ The application demonstrates secure communication by implementing encryption mid
    ng build --prod
    ```
 
+#### Login Page Credentials:
+
+##### Username: admin
+
+##### Password: 123
+
 ---
 
 ## Usage Instructions
